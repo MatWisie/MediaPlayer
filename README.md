@@ -4,6 +4,6 @@ Technology: WPF<br>
 Programming language: C#<br>
 <br>
 <br>
-Project start: 17.09.2021
+Project start: 19.09.2021
 <br>
 <i>Work in progress</i>
