@@ -1,4 +1,5 @@
 # MediaPlayer
+My first public project "Media Player".<br>
 Technology: WPF<br>
 Programming language: C#<br>
 <br>
