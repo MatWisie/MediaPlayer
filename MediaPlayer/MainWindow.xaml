@@ -1,0 +1,90 @@
+﻿<Window x:Class="MediaPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediaPlayer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip"
+        AllowsTransparency="True"
+        x:Name="_window"
+        Background="Black"
+        >
+
+    <Window.Resources>
+        <BeginStoryboard x:Key="Fading">
+            <Storyboard>
+                <DoubleAnimation Duration="0:0:0.600" From="0.8" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PlayPauseImg"/>
+        </Storyboard>
+        </BeginStoryboard>
+    </Window.Resources>
+    
+
+    <DockPanel>
+        <!--TITLE BAR-->
+        <Grid DockPanel.Dock="Top" VerticalAlignment="Top" Background="#1E195C" Width="{Binding ElementName=_window, Path=Width}" MouseDown="Grid_MouseDown">
+
+            <Grid DockPanel.Dock="Top" VerticalAlignment="Top" Background="#1E195C" Width="{Binding ElementName=_window, Path=Width}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="699*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="51*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Button HorizontalAlignment="Stretch" Grid.Column="1" Style="{StaticResource titleBarButton}" Click="Button_WindowMinimized">
+                    <Button.Content>
+                        <Rectangle Fill="White" Height="5" Width="10"/>
+                    </Button.Content>
+                </Button>
+
+
+                <Button HorizontalAlignment="Stretch" Grid.Column="2" Style="{StaticResource titleBarButton}" Click="Button_WindowMaximized">
+                    <Button.Content>
+                        <Rectangle Fill="White" Height="10" Width="10"/>
+                    </Button.Content>
+                </Button>
+                <Button Content="X" HorizontalAlignment="Stretch" Grid.Column="3" Style="{StaticResource titleBarButton}" Height="29" VerticalAlignment="Top" Click="Button_Exit"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Rectangle}">
+                        <Setter Property="Margin" Value="5 0 0 0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Rectangle Fill="Black" Width="7" Height="20"/>
+                <Rectangle Fill="Black" Width="7" Height="20"/>
+                <Rectangle Fill="Black" Width="7" Height="20"/>
+            </StackPanel>
+        </Grid>
+
+        <!--MAIN GRID-->
+
+        <Grid>
+
+            <Button Click="PlayPauseButton">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="Black">
+                            <ContentPresenter/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Content>
+                    <Grid>
+                        <!--TEST VIDEO FOR NOW-->
+                        <MediaElement Source="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" Name="Media" LoadedBehavior="Manual"/>
+                        <Image VerticalAlignment="Center" HorizontalAlignment="Center" Name="PlayPauseImg" Height="110" Opacity="0.8"/>
+                    </Grid>
+                </Button.Content>
+            </Button>
+
+
+            
+
+        </Grid>
+    </DockPanel>
+</Window>
