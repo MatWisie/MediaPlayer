@@ -10,7 +10,9 @@
         ResizeMode="CanResizeWithGrip"
         AllowsTransparency="True"
         x:Name="_window"
+        Loaded="Window_Loaded"
         Background="Black"
+        MouseMove="Window_MouseMove"
         >
 
     <Window.Resources>
@@ -24,9 +26,17 @@
 
     <DockPanel>
         <!--TITLE BAR-->
-        <Grid DockPanel.Dock="Top" VerticalAlignment="Top" Background="#1E195C" Width="{Binding ElementName=_window, Path=Width}" MouseDown="Grid_MouseDown">
+        <Grid DockPanel.Dock="Top" 
+              VerticalAlignment="Top" 
+              Background="#1E195C" 
+              Width="{Binding ElementName=_window, Path=Width}" 
+              MouseDown="Grid_MouseDown">
 
-            <Grid DockPanel.Dock="Top" VerticalAlignment="Top" Background="#1E195C" Width="{Binding ElementName=_window, Path=Width}">
+            <Grid DockPanel.Dock="Top" 
+                  VerticalAlignment="Top" 
+                  Background="#1E195C" 
+                  Width="{Binding ElementName=_window, Path=Width}">
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="699*"/>
                     <ColumnDefinition Width="50*"/>
@@ -47,8 +57,14 @@
                         <Rectangle Fill="White" Height="10" Width="10"/>
                     </Button.Content>
                 </Button>
-                <Button Content="X" HorizontalAlignment="Stretch" Grid.Column="3" Style="{StaticResource titleBarButton}" Height="29" VerticalAlignment="Top" Click="Button_Exit"/>
+                
+                <Button Content="X" 
+                        HorizontalAlignment="Stretch"
+                        Grid.Column="3" Style="{StaticResource titleBarButton}" 
+                        Height="29" VerticalAlignment="Top"
+                        Click="Button_Exit"/>
             </Grid>
+            
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Rectangle}">
@@ -76,13 +92,28 @@
                 <Button.Content>
                     <Grid>
                         <!--TEST VIDEO FOR NOW-->
-                        <MediaElement Source="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" Name="Media" LoadedBehavior="Manual"/>
-                        <Image VerticalAlignment="Center" HorizontalAlignment="Center" Name="PlayPauseImg" Height="110" Opacity="0.8"/>
+                        <MediaElement Source="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" 
+                                      Name="Media" 
+                                      LoadedBehavior="Manual"
+                                      MediaFailed="Media_MediaFailed"
+                                      MediaOpened="Media_MediaOpened"/>
+                        
+                        <Image VerticalAlignment="Center" 
+                               HorizontalAlignment="Center" 
+                               Name="PlayPauseImg" Height="110"
+                               Opacity="0.8"/>
                     </Grid>
                 </Button.Content>
             </Button>
 
-
+            <Grid Background="Black" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Name="TimeSlider">
+                <Slider 
+                    Margin="0 0 0 5"
+                    Name="totalTime" 
+                    ValueChanged="totalTime_ValueChanged"
+                    Thumb.DragStarted="totalTime_DragStarted"
+                    Thumb.DragCompleted="totalTime_DragCompleted"/>
+            </Grid>
             
 
         </Grid>

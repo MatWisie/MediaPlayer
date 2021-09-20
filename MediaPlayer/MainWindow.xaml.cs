@@ -14,6 +14,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace MediaPlayer
 {
@@ -22,9 +23,21 @@ namespace MediaPlayer
     /// </summary>
     public partial class MainWindow : Window
     {
+        DispatcherTimer timer = new DispatcherTimer();
+        DispatcherTimer czas;
         public MainWindow()
         {
             InitializeComponent();
+
+            timer.Interval = TimeSpan.FromSeconds(1);
+
+            timer.Tick += MouseStop;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Media.ScrubbingEnabled = true;
+            Media.Stop();
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -57,6 +70,9 @@ namespace MediaPlayer
             if (playing == false)
             {
                 Media.Play();
+                if (czas != null)
+                    czas.Start();
+
                 playing = true;
                 PlayPauseImg.Source = new BitmapImage(new Uri(@"/Img/Play.png", UriKind.Relative));
                 BeginStoryboard sb = this.FindResource("Fading") as BeginStoryboard;
@@ -65,11 +81,63 @@ namespace MediaPlayer
             else
             {
                 Media.Pause();
+                if (czas != null)
+                    czas.Stop();
+
                 playing = false;
                 PlayPauseImg.Source = new BitmapImage(new Uri(@"/Img/Pause.png", UriKind.Relative));
                 BeginStoryboard sb = this.FindResource("Fading") as BeginStoryboard;
                 sb.Storyboard.Begin();
             }
+        }
+        private void Media_MediaFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+            MessageBox.Show(e.ErrorException.Message);
+        }
+        private void Media_MediaOpened(object sender, RoutedEventArgs e)
+        {
+
+            totalTime.Maximum = Media.NaturalDuration.TimeSpan.TotalSeconds;
+            czas = new DispatcherTimer();
+            czas.Interval = TimeSpan.FromSeconds(1);
+            czas.Tick += Czas_Tick;
+
+            czas.Start();
+            czas.Stop();
+        }
+        private void Czas_Tick(object sender, EventArgs e)
+        {
+            totalTime.Value = Media.Position.TotalSeconds;
+        }
+        private void totalTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Media.Position = TimeSpan.FromSeconds(totalTime.Value);
+        }
+        private void totalTime_DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
+        {
+            Media.Pause();
+            if (czas != null)
+            {
+                czas.Stop();
+            }
+        }
+        private void totalTime_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+            Media.Play();
+            czas.Start();
+        }
+
+        private void Window_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            timer.Stop();
+            TimeSlider.Visibility = Visibility.Visible;
+            timer.Start();
+
+        }
+        private void MouseStop(object sender, EventArgs e)
+        {
+            TimeSlider.Visibility = Visibility.Hidden;
         }
     }
 }
