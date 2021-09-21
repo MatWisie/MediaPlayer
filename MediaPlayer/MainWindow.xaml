@@ -19,10 +19,10 @@
         <BeginStoryboard x:Key="Fading">
             <Storyboard>
                 <DoubleAnimation Duration="0:0:0.600" From="0.8" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PlayPauseImg"/>
-        </Storyboard>
+            </Storyboard>
         </BeginStoryboard>
     </Window.Resources>
-    
+
 
     <DockPanel>
         <!--TITLE BAR-->
@@ -36,7 +36,7 @@
                   VerticalAlignment="Top" 
                   Background="#1E195C" 
                   Width="{Binding ElementName=_window, Path=Width}">
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="699*"/>
                     <ColumnDefinition Width="50*"/>
@@ -57,14 +57,14 @@
                         <Rectangle Fill="White" Height="10" Width="10"/>
                     </Button.Content>
                 </Button>
-                
+
                 <Button Content="X" 
                         HorizontalAlignment="Stretch"
                         Grid.Column="3" Style="{StaticResource titleBarButton}" 
                         Height="29" VerticalAlignment="Top"
                         Click="Button_Exit"/>
             </Grid>
-            
+
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Rectangle}">
@@ -80,7 +80,7 @@
         <!--MAIN GRID-->
 
         <Grid>
-
+            
             <Button Click="PlayPauseButton">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -97,7 +97,7 @@
                                       LoadedBehavior="Manual"
                                       MediaFailed="Media_MediaFailed"
                                       MediaOpened="Media_MediaOpened"/>
-                        
+
                         <Image VerticalAlignment="Center" 
                                HorizontalAlignment="Center" 
                                Name="PlayPauseImg" Height="110"
@@ -105,16 +105,31 @@
                     </Grid>
                 </Button.Content>
             </Button>
-
-            <Grid Background="Black" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Name="TimeSlider">
-                <Slider 
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="{Binding ElementName=TimeSlider, Path=Height}"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid Background="Black" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Name="TimeSlider" Grid.Row="2" Grid.ColumnSpan="2">
+                    <Slider 
                     Margin="0 0 0 5"
                     Name="totalTime" 
                     ValueChanged="totalTime_ValueChanged"
                     Thumb.DragStarted="totalTime_DragStarted"
                     Thumb.DragCompleted="totalTime_DragCompleted"/>
+                </Grid>
+
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Black" Margin="5 0 0 0" Name="VolumePanel">
+                    <Slider Orientation="Vertical" Height="100" Name="VolumeSlider" Margin="0 0 0 5" Value="{Binding ElementName=Media, Path=Volume}" Maximum="1"/>
+                    <Image Source="/Img/Volume.png" Width="15"/>
+                </StackPanel>
             </Grid>
-            
 
         </Grid>
     </DockPanel>

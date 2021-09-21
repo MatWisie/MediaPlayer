@@ -24,7 +24,7 @@ namespace MediaPlayer
     public partial class MainWindow : Window
     {
         DispatcherTimer timer = new DispatcherTimer();
-        DispatcherTimer czas;
+        DispatcherTimer TimeOfMedia;
         public MainWindow()
         {
             InitializeComponent();
@@ -70,8 +70,8 @@ namespace MediaPlayer
             if (playing == false)
             {
                 Media.Play();
-                if (czas != null)
-                    czas.Start();
+                if (TimeOfMedia != null)
+                    TimeOfMedia.Start();
 
                 playing = true;
                 PlayPauseImg.Source = new BitmapImage(new Uri(@"/Img/Play.png", UriKind.Relative));
@@ -81,8 +81,8 @@ namespace MediaPlayer
             else
             {
                 Media.Pause();
-                if (czas != null)
-                    czas.Stop();
+                if (TimeOfMedia != null)
+                    TimeOfMedia.Stop();
 
                 playing = false;
                 PlayPauseImg.Source = new BitmapImage(new Uri(@"/Img/Pause.png", UriKind.Relative));
@@ -98,12 +98,12 @@ namespace MediaPlayer
         {
 
             totalTime.Maximum = Media.NaturalDuration.TimeSpan.TotalSeconds;
-            czas = new DispatcherTimer();
-            czas.Interval = TimeSpan.FromSeconds(1);
-            czas.Tick += Czas_Tick;
+            TimeOfMedia = new DispatcherTimer();
+            TimeOfMedia.Interval = TimeSpan.FromSeconds(1);
+            TimeOfMedia.Tick += Czas_Tick;
 
-            czas.Start();
-            czas.Stop();
+            TimeOfMedia.Start();
+            TimeOfMedia.Stop();
         }
         private void Czas_Tick(object sender, EventArgs e)
         {
@@ -116,15 +116,15 @@ namespace MediaPlayer
         private void totalTime_DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
         {
             Media.Pause();
-            if (czas != null)
+            if (TimeOfMedia != null)
             {
-                czas.Stop();
+                TimeOfMedia.Stop();
             }
         }
         private void totalTime_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
         {
             Media.Play();
-            czas.Start();
+            TimeOfMedia.Start();
         }
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
@@ -132,12 +132,14 @@ namespace MediaPlayer
 
             timer.Stop();
             TimeSlider.Visibility = Visibility.Visible;
+            VolumePanel.Visibility = Visibility.Visible;
             timer.Start();
 
         }
         private void MouseStop(object sender, EventArgs e)
         {
             TimeSlider.Visibility = Visibility.Hidden;
+            VolumePanel.Visibility = Visibility.Hidden;
         }
     }
 }
