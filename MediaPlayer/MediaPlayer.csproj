@@ -101,5 +101,8 @@
   <ItemGroup>
     <Resource Include="Img\Volume.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Fullscreen.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

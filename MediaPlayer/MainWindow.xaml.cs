@@ -131,15 +131,39 @@ namespace MediaPlayer
         {
 
             timer.Stop();
-            TimeSlider.Visibility = Visibility.Visible;
-            VolumePanel.Visibility = Visibility.Visible;
+            ControlsGrid.Visibility = Visibility.Visible;
             timer.Start();
 
         }
         private void MouseStop(object sender, EventArgs e)
         {
-            TimeSlider.Visibility = Visibility.Hidden;
-            VolumePanel.Visibility = Visibility.Hidden;
+            ControlsGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void FullscreenClick(object sender, MouseButtonEventArgs e)
+        {
+            if (TitleBar.Visibility == Visibility.Visible)
+            {
+                _window.WindowState = WindowState.Maximized;
+                TitleBar.Visibility = Visibility.Collapsed;
+            }
+            else if(TitleBar.Visibility == Visibility.Collapsed)
+            {
+                _window.WindowState = WindowState.Normal;
+                TitleBar.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void EscapeFullscreen(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Escape)
+            {
+                if (TitleBar.Visibility == Visibility.Collapsed)
+                {
+                    _window.WindowState = WindowState.Normal;
+                    TitleBar.Visibility = Visibility.Visible;
+                }
+            }
         }
     }
 }
