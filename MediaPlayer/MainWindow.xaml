@@ -47,7 +47,7 @@
 
                 </Grid.ColumnDefinitions>
 
-                <Button Content="OPEN" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource OpenButton}" Margin="15 0 0 0" Width="80"/>
+                <Button Content="OPEN" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource OpenButton}" Margin="15 0 0 0" Width="80" Click="FileDialog" Name="FileDialogButton"/>
 
                 <Button HorizontalAlignment="Stretch" Grid.Column="1" Style="{StaticResource titleBarButton}" Click="Button_WindowMinimized">
                     <Button.Content>
@@ -95,8 +95,7 @@
                 </Button.Template>
                 <Button.Content>
                     <Grid>
-                        <!--TEST VIDEO FOR NOW-->
-                        <MediaElement Source="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" 
+                        <MediaElement 
                                       Name="Media" 
                                       LoadedBehavior="Manual"
                                       MediaFailed="Media_MediaFailed"
