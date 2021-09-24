@@ -76,6 +76,7 @@ namespace MediaPlayer
 
                 playing = true;
                 PlayPauseImg.Source = new BitmapImage(new Uri(@"/Img/Play.png", UriKind.Relative));
+                PlayPauseImgBottom.Source = new BitmapImage(new Uri(@"/Img/PlayWhite.png", UriKind.Relative));
                 BeginStoryboard sb = this.FindResource("Fading") as BeginStoryboard;
                 sb.Storyboard.Begin();
             }
@@ -87,6 +88,7 @@ namespace MediaPlayer
 
                 playing = false;
                 PlayPauseImg.Source = new BitmapImage(new Uri(@"/Img/Pause.png", UriKind.Relative));
+                PlayPauseImgBottom.Source = new BitmapImage(new Uri(@"/Img/PauseWhite.png", UriKind.Relative));
                 BeginStoryboard sb = this.FindResource("Fading") as BeginStoryboard;
                 sb.Storyboard.Begin();
             }
@@ -101,12 +103,12 @@ namespace MediaPlayer
             totalTime.Maximum = Media.NaturalDuration.TimeSpan.TotalSeconds;
             TimeOfMedia = new DispatcherTimer();
             TimeOfMedia.Interval = TimeSpan.FromSeconds(1);
-            TimeOfMedia.Tick += Czas_Tick;
+            TimeOfMedia.Tick += TimeOfMedia_Tick;
 
             TimeOfMedia.Start();
             TimeOfMedia.Stop();
         }
-        private void Czas_Tick(object sender, EventArgs e)
+        private void TimeOfMedia_Tick(object sender, EventArgs e)
         {
             totalTime.Value = Media.Position.TotalSeconds;
         }

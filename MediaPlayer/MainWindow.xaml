@@ -19,7 +19,11 @@
     <Window.Resources>
         <BeginStoryboard x:Key="Fading">
             <Storyboard>
-                <DoubleAnimation Duration="0:0:0.600" From="0.8" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PlayPauseImg"/>
+                <DoubleAnimation 
+                    Duration="0:0:0.600" 
+                    From="0.8" To="0" 
+                    Storyboard.TargetProperty="Opacity" 
+                    Storyboard.TargetName="PlayPauseImg"/>
             </Storyboard>
         </BeginStoryboard>
     </Window.Resources>
@@ -47,16 +51,28 @@
 
                 </Grid.ColumnDefinitions>
 
-                <Button Content="OPEN" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource OpenButton}" Margin="15 0 0 0" Width="80" Click="FileDialog" Name="FileDialogButton"/>
+                <Button Content="OPEN" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Left" 
+                        Style="{StaticResource OpenButton}"
+                        Margin="15 0 0 0" Width="80" 
+                        Click="FileDialog" 
+                        Name="FileDialogButton"/>
 
-                <Button HorizontalAlignment="Stretch" Grid.Column="1" Style="{StaticResource titleBarButton}" Click="Button_WindowMinimized">
+                <Button HorizontalAlignment="Stretch" 
+                        Grid.Column="1" 
+                        Style="{StaticResource titleBarButton}"
+                        Click="Button_WindowMinimized">
                     <Button.Content>
                         <Rectangle Fill="White" Height="5" Width="10"/>
                     </Button.Content>
                 </Button>
 
 
-                <Button HorizontalAlignment="Stretch" Grid.Column="2" Style="{StaticResource titleBarButton}" Click="Button_WindowMaximized">
+                <Button HorizontalAlignment="Stretch" 
+                        Grid.Column="2" 
+                        Style="{StaticResource titleBarButton}" 
+                        Click="Button_WindowMaximized">
                     <Button.Content>
                         <Rectangle Fill="White" Height="10" Width="10"/>
                     </Button.Content>
@@ -84,7 +100,7 @@
         <!--MAIN GRID-->
 
         <Grid>
-            
+
             <Button Click="PlayPauseButton">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -95,11 +111,11 @@
                 </Button.Template>
                 <Button.Content>
                     <Grid>
-                        <MediaElement 
-                                      Name="Media" 
+                        <MediaElement Name="Media" 
                                       LoadedBehavior="Manual"
                                       MediaFailed="Media_MediaFailed"
-                                      MediaOpened="Media_MediaOpened"/>
+                                      MediaOpened="Media_MediaOpened"
+                                      />
 
                         <Image VerticalAlignment="Center" 
                                HorizontalAlignment="Center" 
@@ -118,21 +134,46 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                
-                <Grid Background="Black" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Name="TimeSlider" Grid.Row="2" Grid.ColumnSpan="2">
+
+                <Grid Background="Black"
+                      VerticalAlignment="Bottom"
+                      HorizontalAlignment="Stretch" 
+                      Name="TimeSlider" Grid.Row="2" 
+                      Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="146*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="PlayPauseImgBottom" MouseLeftButtonDown="PlayPauseButton" Source="/Img/PlayWhite.png" Height="20" Margin="0 0 0 5"/>
                     <Slider 
                     Margin="0 0 0 5"
                     Name="totalTime" 
                     ValueChanged="totalTime_ValueChanged"
                     Thumb.DragStarted="totalTime_DragStarted"
-                    Thumb.DragCompleted="totalTime_DragCompleted"/>
+                    Thumb.DragCompleted="totalTime_DragCompleted"
+                        Grid.Column="1"/>
                 </Grid>
 
-                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Black" Margin="8 0 0 0" Name="VolumePanel">
-                    <Slider Orientation="Vertical" Height="100" Name="VolumeSlider" Margin="0 0 0 5" Value="{Binding ElementName=Media, Path=Volume}" Maximum="1"/>
+                <StackPanel Grid.Row="1" 
+                            VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Left"
+                            Background="Black"
+                            Margin="8 0 0 0" 
+                            Name="VolumePanel">
+                    <Slider Orientation="Vertical" 
+                            Height="100" 
+                            Name="VolumeSlider" 
+                            Margin="0 0 0 5" 
+                            Value="{Binding ElementName=Media, Path=Volume}" 
+                            Maximum="1"/>
                     <Image Source="/Img/Volume.png" Width="15"/>
                 </StackPanel>
-                <Grid Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" Margin="0 0 8 0">
+                <Grid Grid.Row="1" 
+                      Grid.Column="1" 
+                      VerticalAlignment="Bottom"
+                      HorizontalAlignment="Right"
+                      Background="Black" 
+                      Margin="0 0 8 0">
                     <Image Source="/Img/Fullscreen.png" Width="20" MouseLeftButtonDown="FullscreenClick"/>
                 </Grid>
             </Grid>
