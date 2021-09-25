@@ -127,6 +127,7 @@ namespace MediaPlayer
         private void totalTime_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
         {
             Media.Play();
+            if(TimeOfMedia != null)
             TimeOfMedia.Start();
         }
 
