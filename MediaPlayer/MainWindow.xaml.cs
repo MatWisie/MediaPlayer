@@ -33,6 +33,9 @@ namespace MediaPlayer
             timer.Interval = TimeSpan.FromSeconds(1);
 
             timer.Tick += MouseStop;
+            TimeOfMedia = new DispatcherTimer();
+            TimeOfMedia.Interval = TimeSpan.FromSeconds(1);
+            TimeOfMedia.Tick += TimeOfMedia_Tick;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -64,7 +67,7 @@ namespace MediaPlayer
             _window.WindowState = WindowState.Minimized;
         }
 
-        static bool playing = false;
+        static bool playing = true;
         private void PlayPauseButton(object sender, RoutedEventArgs e)
         {
 
@@ -101,12 +104,9 @@ namespace MediaPlayer
         {
 
             totalTime.Maximum = Media.NaturalDuration.TimeSpan.TotalSeconds;
-            TimeOfMedia = new DispatcherTimer();
-            TimeOfMedia.Interval = TimeSpan.FromSeconds(1);
-            TimeOfMedia.Tick += TimeOfMedia_Tick;
-
+            Media.Play();
             TimeOfMedia.Start();
-            TimeOfMedia.Stop();
+            
         }
         private void TimeOfMedia_Tick(object sender, EventArgs e)
         {
@@ -173,6 +173,9 @@ namespace MediaPlayer
         private void FileDialog(object sender, RoutedEventArgs e)
         {
 
+
+            
+
             OpenFileDialog MediaSource = new OpenFileDialog();
             MediaSource.Filter = "Media Files|*.wav;*.aac;*.wma;*.wmv;*.avi;*.mpg;*.mpeg;*.m1v;*.mp2;*.mp3;*.mpa;*.mpe;*.m3u;*.mp4;*.mov;*.3g2;*.3gp2;*.3gp;*.3gpp;*.m4a;*.cda;*.aif;*.aifc;*.aiff;*.mid;*.midi;*.rmi;*.mkv;*.WAV;*.AAC;*.WMA;*.WMV;*.AVI;*.MPG;*.MPEG;*.M1V;*.MP2;*.MP3;*.MPA;*.MPE;*.M3U;*.MP4;*.MOV;*.3G2;*.3GP2;*.3GP;*.3GPP;*.M4A;*.CDA;*.AIF;*.AIFC;*.AIFF;*.MID;*.MIDI;*.RMI;*.MKV"; ;
             MediaSource.ShowDialog();
@@ -180,8 +183,12 @@ namespace MediaPlayer
             if (!string.IsNullOrEmpty(MediaSource.FileName))
             {
                 Media.Source = new Uri(MediaSource.FileName);
+                if(MusicImage.Visibility == Visibility.Hidden)
+                MusicImage.Visibility = Visibility.Visible;
             }
-
+            
+            
+          
 
         }
     }

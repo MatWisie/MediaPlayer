@@ -111,11 +111,13 @@
                 </Button.Template>
                 <Button.Content>
                     <Grid>
+                        <Image Source="/Img/music.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="120" Height="120" Name="MusicImage" Visibility="Hidden"/>
                         <MediaElement Name="Media" 
                                       LoadedBehavior="Manual"
                                       MediaFailed="Media_MediaFailed"
                                       MediaOpened="Media_MediaOpened"
                                       />
+                        
 
                         <Image VerticalAlignment="Center" 
                                HorizontalAlignment="Center" 
