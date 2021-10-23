@@ -50,14 +50,20 @@
                     <ColumnDefinition Width="51*"/>
 
                 </Grid.ColumnDefinitions>
-
-                <Button Content="OPEN" 
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="OPEN" 
                         VerticalAlignment="Center" 
                         HorizontalAlignment="Left" 
                         Style="{StaticResource OpenButton}"
-                        Margin="15 0 0 0" Width="80" 
+                        Margin="10 0 0 0" Width="80" 
                         Click="FileDialog" 
                         Name="FileDialogButton"/>
+                    <Button Style="{StaticResource OpenLastMedia}" Name="LastMediaButton" Width="30" Height="{Binding ElementName=FileDialogButton, Path=ActualHeight}" Click="LastMediaButton_Click">
+                        <Button.Content>
+                            <Image Source="/Img/LastMediaimage.png" />
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
 
                 <Button HorizontalAlignment="Stretch" 
                         Grid.Column="1" 

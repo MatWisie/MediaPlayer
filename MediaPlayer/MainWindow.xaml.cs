@@ -1,6 +1,8 @@
-﻿using Microsoft.Win32;
+﻿using MediaPlayer.Properties;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -29,6 +31,10 @@ namespace MediaPlayer
         public MainWindow()
         {
             InitializeComponent();
+            if (Debugger.IsAttached)  //remove when want to test settings
+            {
+                Settings.Default.Reset();
+            }
 
             timer.Interval = TimeSpan.FromSeconds(1);
 
@@ -51,6 +57,8 @@ namespace MediaPlayer
 
         private void Button_Exit(object sender, RoutedEventArgs e)
         {
+            Settings.Default["LastMedia"] = Media.Source;
+            Settings.Default.Save();
             System.Windows.Application.Current.Shutdown();
         }
 
@@ -178,10 +186,21 @@ namespace MediaPlayer
 
             if (!string.IsNullOrEmpty(MediaSource.FileName))
             {
+                Settings.Default["LastMedia"] = Media.Source;
+                Settings.Default.Save();
+
                 Media.Source = new Uri(MediaSource.FileName);
-                if(MusicImage.Visibility == Visibility.Hidden)
+                
+                if (MusicImage.Visibility == Visibility.Hidden)
                 MusicImage.Visibility = Visibility.Visible;
             }
+        }
+
+        private void LastMediaButton_Click(object sender, RoutedEventArgs e)
+        {
+            Media.Source = (Uri)Settings.Default["LastMedia"];
+            if (MusicImage.Visibility == Visibility.Hidden)
+                MusicImage.Visibility = Visibility.Visible;
         }
     }
 }

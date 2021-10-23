@@ -39,7 +39,31 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
-                            <Border Background="{TemplateBinding Background}" BorderBrush="#7A6DEE" BorderThickness="1" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" CornerRadius="10">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="#7A6DEE" BorderThickness="1" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" CornerRadius="10 0 0 10">
+                                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" FontWeight="Bold" FontSize="13">
+                                    <ContentPresenter/>
+                                </Label>
+                            </Border>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#382DA8"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="OpenLastMedia" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#38345C"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="#7A6DEE" BorderThickness="1" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" CornerRadius="0 10 10 0">
                                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" FontWeight="Bold" FontSize="13">
                                     <ContentPresenter/>
                                 </Label>
