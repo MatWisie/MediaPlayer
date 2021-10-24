@@ -9,5 +9,5 @@ Project start: 19.09.2021
 <i>Work in progress</i>
 <br>
 <br>
-![obraz](https://user-images.githubusercontent.com/47103336/134810744-256f2015-4b08-48aa-b62d-863271ad1876.png)
+![obraz](https://user-images.githubusercontent.com/47103336/138558150-06da9ef1-d8be-48a5-ba03-7783a9456838.png)
 
