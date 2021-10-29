@@ -59,7 +59,7 @@ namespace MediaPlayer
         {
             Settings.Default["LastMedia"] = Media.Source;
             Settings.Default.Save();
-            System.Windows.Application.Current.Shutdown();
+            this.Close();
         }
 
         private void Button_WindowMaximized(object sender, RoutedEventArgs e)
