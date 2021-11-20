@@ -2,8 +2,10 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +26,16 @@ namespace MediaPlayer
         public MainMenu()
         {
             InitializeComponent();
+            MediaElement1.Source = (Uri)Settings.Default["Media1"];
+            MediaElement2.Source = (Uri)Settings.Default["Media2"];
+            MediaElement1.Play();
+            MediaElement2.Play();
+
+
+            if (Debugger.IsAttached)  //remove when want to test settings
+            {
+                Settings.Default.Reset();
+            }
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -54,11 +66,31 @@ namespace MediaPlayer
             OpenFileDialog MediaSource = new OpenFileDialog();
             MediaSource.Filter = "Media Files|*.wav;*.aac;*.wma;*.wmv;*.avi;*.mpg;*.mpeg;*.m1v;*.mp2;*.mp3;*.mpa;*.mpe;*.m3u;*.mp4;*.mov;*.3g2;*.3gp2;*.3gp;*.3gpp;*.m4a;*.cda;*.aif;*.aifc;*.aiff;*.mid;*.midi;*.rmi;*.mkv;*.WAV;*.AAC;*.WMA;*.WMV;*.AVI;*.MPG;*.MPEG;*.M1V;*.MP2;*.MP3;*.MPA;*.MPE;*.M3U;*.MP4;*.MOV;*.3G2;*.3GP2;*.3GP;*.3GPP;*.M4A;*.CDA;*.AIF;*.AIFC;*.AIFF;*.MID;*.MIDI;*.RMI;*.MKV"; ;
             MediaSource.ShowDialog();
+            
+
+
+            if (!string.IsNullOrEmpty(MediaSource.FileName))
+            {
+                MainWindow mainwindow = new MainWindow();
+                mainwindow.Show();
+                mainwindow.Media.Source = new Uri(MediaSource.FileName);
+            }
+        }
+
+        private void LastMediaButton_Click(object sender, RoutedEventArgs e)
+        {
+
             MainWindow mainwindow = new MainWindow();
             mainwindow.Show();
-            mainwindow.Media.Source = new Uri(MediaSource.FileName);
+            mainwindow.Media.Source = (Uri)Settings.Default["LastMedia"];
 
 
+        }
+
+        private void MediaElement1_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            MediaElement1.Pause();
+            MediaElement2.Pause();
         }
     }
 }

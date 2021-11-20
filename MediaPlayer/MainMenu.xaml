@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediaPlayer"
         mc:Ignorable="d"
-        Title="MainMenu" Height="450" Width="500"
+        Title="MainMenu" Height="450" Width="700"
         WindowStyle="None"
         ResizeMode="CanResizeWithGrip"
         AllowsTransparency="True"
@@ -38,7 +38,7 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    
+
     <DockPanel>
         <!--TITLE BAR-->
         <Grid DockPanel.Dock="Top" 
@@ -67,7 +67,7 @@
                         Style="{StaticResource OpenButton}"
                         Margin="10 0 0 0" Width="80" 
                         Name="FileDialogButton" Click="FileDialogButton_Click"/>
-                    <Button Style="{StaticResource OpenLastMedia}" Name="LastMediaButton" Width="30" Height="{Binding ElementName=FileDialogButton, Path=ActualHeight}">
+                    <Button Style="{StaticResource OpenLastMedia}" Name="LastMediaButton" Width="30" Height="{Binding ElementName=FileDialogButton, Path=ActualHeight}" Click="LastMediaButton_Click">
                         <Button.Content>
                             <Image Source="/Img/LastMediaimage.png" />
                         </Button.Content>
@@ -110,17 +110,25 @@
                 <Rectangle Fill="Black" Width="7" Height="20"/>
                 <Rectangle Fill="Black" Width="7" Height="20"/>
             </StackPanel>
-            </Grid>
-            <!--Main Grid-->
+        </Grid>
+
+        <!--Main Grid-->
+
         <Grid Background="#192B73">
-            <UniformGrid >
-                <MediaElement/>
-                <MediaElement/>
-                <MediaElement/>
-                <MediaElement/>
-                <MediaElement/>
-                <MediaElement/>
-            </UniformGrid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="187*"/>
+                <RowDefinition Height="186*"/>
+                <RowDefinition Height="48*"/>
+            </Grid.RowDefinitions>
+
+            <MediaElement Name="MediaElement1" Grid.Column="0" Grid.Row="0" Style="{StaticResource MediaGallery}" LoadedBehavior="Manual" MediaOpened="MediaElement1_MediaOpened" Volume="0"/>
+            <MediaElement Name="MediaElement2" Grid.Column="1" Grid.Row="0" Style="{StaticResource MediaGallery}" LoadedBehavior="Manual" MediaOpened="MediaElement1_MediaOpened" Volume="0"/>
+
         </Grid>
     </DockPanel>
 </Window>

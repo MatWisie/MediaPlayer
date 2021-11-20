@@ -33,5 +33,83 @@ namespace MediaPlayer.Properties {
                 this["LastMedia"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Counter {
+            get {
+                return ((int)(this["Counter"]));
+            }
+            set {
+                this["Counter"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Uri Media1 {
+            get {
+                return ((global::System.Uri)(this["Media1"]));
+            }
+            set {
+                this["Media1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Uri Media2 {
+            get {
+                return ((global::System.Uri)(this["Media2"]));
+            }
+            set {
+                this["Media2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Uri Media3 {
+            get {
+                return ((global::System.Uri)(this["Media3"]));
+            }
+            set {
+                this["Media3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Uri Media4 {
+            get {
+                return ((global::System.Uri)(this["Media4"]));
+            }
+            set {
+                this["Media4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Uri Media5 {
+            get {
+                return ((global::System.Uri)(this["Media5"]));
+            }
+            set {
+                this["Media5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Uri Media6 {
+            get {
+                return ((global::System.Uri)(this["Media6"]));
+            }
+            set {
+                this["Media6"] = value;
+            }
+        }
     }
 }

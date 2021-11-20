@@ -31,13 +31,11 @@ namespace MediaPlayer
         public MainWindow()
         {
             InitializeComponent();
-            if (Debugger.IsAttached)  //remove when want to test settings
-            {
-                Settings.Default.Reset();
-            }
+
+            
 
             timer.Interval = TimeSpan.FromSeconds(1);
-
+            
             timer.Tick += MouseStop;
             TimeOfMedia = new DispatcherTimer();
             TimeOfMedia.Interval = TimeSpan.FromSeconds(1);
@@ -193,6 +191,25 @@ namespace MediaPlayer
                 
                 if (MusicImage.Visibility == Visibility.Hidden)
                 MusicImage.Visibility = Visibility.Visible;
+
+                if (Convert.ToInt32(Settings.Default["Counter"]) == 0)
+                {
+                    Settings.Default["Media1"] = Media.Source;
+                    int counter = (int)Settings.Default["Counter"];
+                    counter += 1;
+                    Settings.Default["Counter"] = counter;
+                    Settings.Default.Save();
+                }
+
+                else if (Convert.ToInt32(Settings.Default["Counter"]) == 1)
+                {
+                    Settings.Default["Media2"] = Media.Source;
+                    int counter = (int)Settings.Default["Counter"];
+                    counter += 1;
+                    Settings.Default["Counter"] = counter;
+                    Settings.Default.Save();
+                }
+
             }
         }
 
