@@ -217,6 +217,30 @@ namespace MediaPlayer
                     Settings.Default["Counter"] = counter;
                     Settings.Default.Save();
                 }
+                else if (Convert.ToInt32(Settings.Default["Counter"]) == 3)
+                {
+                    Settings.Default["Media4"] = Media.Source;
+                    int counter = (int)Settings.Default["Counter"];
+                    counter += 1;
+                    Settings.Default["Counter"] = counter;
+                    Settings.Default.Save();
+                }
+                else if (Convert.ToInt32(Settings.Default["Counter"]) == 4)
+                {
+                    Settings.Default["Media5"] = Media.Source;
+                    int counter = (int)Settings.Default["Counter"];
+                    counter += 1;
+                    Settings.Default["Counter"] = counter;
+                    Settings.Default.Save();
+                }
+                else if (Convert.ToInt32(Settings.Default["Counter"]) == 5)
+                {
+                    Settings.Default["Media6"] = Media.Source;
+                    int counter = (int)Settings.Default["Counter"];
+                    counter = 0;
+                    Settings.Default["Counter"] = counter;
+                    Settings.Default.Save();
+                }
 
             }
         }

@@ -31,6 +31,31 @@
             </Style.Triggers>
         </Style>
 
+        <Style x:Key="helpButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#38345C"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="#382DA8" BorderThickness="1" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
+                                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" FontWeight="Bold" FontSize="20">
+                                    <ContentPresenter/>
+                                </Label>
+                            </Border>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#382DA8"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
 
         <Style x:Key="OpenButton" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#38345C"/>

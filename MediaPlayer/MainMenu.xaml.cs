@@ -29,9 +29,16 @@ namespace MediaPlayer
             MediaElement1.Source = (Uri)Settings.Default["Media1"];
             MediaElement2.Source = (Uri)Settings.Default["Media2"];
             MediaElement3.Source = (Uri)Settings.Default["Media3"];
+            MediaElement4.Source = (Uri)Settings.Default["Media4"];
+            MediaElement5.Source = (Uri)Settings.Default["Media5"];
+            MediaElement6.Source = (Uri)Settings.Default["Media6"];
+
             MediaElement1.Play();
             MediaElement2.Play();
             MediaElement3.Play();
+            MediaElement4.Play();
+            MediaElement5.Play();
+            MediaElement6.Play();
 
             if (Debugger.IsAttached)  //remove when want to test settings
             {
@@ -94,6 +101,9 @@ namespace MediaPlayer
             MediaElement1.Pause();
             MediaElement2.Pause();
             MediaElement3.Pause();
+            MediaElement4.Pause();
+            MediaElement5.Pause();
+            MediaElement6.Pause();
         }
     }
 }
