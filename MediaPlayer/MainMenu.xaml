@@ -126,9 +126,9 @@
                 <RowDefinition Height="48*"/>
             </Grid.RowDefinitions>
 
-            <MediaElement Name="MediaElement1" Grid.Column="0" Grid.Row="0" Style="{StaticResource MediaGallery}" LoadedBehavior="Manual" MediaOpened="MediaElement1_MediaOpened" Volume="0"/>
-            <MediaElement Name="MediaElement2" Grid.Column="1" Grid.Row="0" Style="{StaticResource MediaGallery}" LoadedBehavior="Manual" MediaOpened="MediaElement1_MediaOpened" Volume="0"/>
-
+            <MediaElement Name="MediaElement1" Grid.Column="0" Grid.Row="0" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened"/>
+            <MediaElement Name="MediaElement2" Grid.Column="1" Grid.Row="0" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened"/>
+            <MediaElement Name="MediaElement3" Grid.Column="2" Grid.Row="0" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened"/>
         </Grid>
     </DockPanel>
 </Window>

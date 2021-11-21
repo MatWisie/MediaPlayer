@@ -209,6 +209,14 @@ namespace MediaPlayer
                     Settings.Default["Counter"] = counter;
                     Settings.Default.Save();
                 }
+                else if (Convert.ToInt32(Settings.Default["Counter"]) == 2)
+                {
+                    Settings.Default["Media3"] = Media.Source;
+                    int counter = (int)Settings.Default["Counter"];
+                    counter += 1;
+                    Settings.Default["Counter"] = counter;
+                    Settings.Default.Save();
+                }
 
             }
         }

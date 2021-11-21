@@ -83,6 +83,8 @@
 
         <Style x:Key="MediaGallery" TargetType="{x:Type MediaElement}">
             <Setter Property="Margin" Value="5 0 5 0"/>
+            <Setter Property="Volume" Value="0"/>
+            <Setter Property="LoadedBehavior" Value="Manual"/>
         </Style>
 
     </Application.Resources>

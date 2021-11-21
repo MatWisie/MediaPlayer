@@ -28,14 +28,16 @@ namespace MediaPlayer
             InitializeComponent();
             MediaElement1.Source = (Uri)Settings.Default["Media1"];
             MediaElement2.Source = (Uri)Settings.Default["Media2"];
+            MediaElement3.Source = (Uri)Settings.Default["Media3"];
             MediaElement1.Play();
             MediaElement2.Play();
-
+            MediaElement3.Play();
 
             if (Debugger.IsAttached)  //remove when want to test settings
             {
                 Settings.Default.Reset();
             }
+
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -91,6 +93,7 @@ namespace MediaPlayer
         {
             MediaElement1.Pause();
             MediaElement2.Pause();
+            MediaElement3.Pause();
         }
     }
 }
