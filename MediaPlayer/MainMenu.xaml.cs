@@ -40,7 +40,10 @@ namespace MediaPlayer
             MediaElement5.Play();
             MediaElement6.Play();
 
-            
+            if (Debugger.IsAttached)  //remove when want to test settings
+            {
+                Settings.Default.Reset();
+            }
 
         }
 
