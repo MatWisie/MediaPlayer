@@ -40,10 +40,7 @@ namespace MediaPlayer
             MediaElement5.Play();
             MediaElement6.Play();
 
-            if (Debugger.IsAttached)  //remove when want to test settings
-            {
-                Settings.Default.Reset();
-            }
+            
 
         }
 
@@ -83,6 +80,56 @@ namespace MediaPlayer
                 MainWindow mainwindow = new MainWindow();
                 mainwindow.Show();
                 mainwindow.Media.Source = new Uri(MediaSource.FileName);
+
+                if (Convert.ToInt32(Settings.Default["Counter"]) == 0)
+                {
+                    Settings.Default["Media1"] = new Uri(MediaSource.FileName);
+                    int counter = (int)Settings.Default["Counter"];
+                    counter += 1;
+                    Settings.Default["Counter"] = counter;
+                    Settings.Default.Save();
+                }
+
+                else if (Convert.ToInt32(Settings.Default["Counter"]) == 1)
+                {
+                    Settings.Default["Media2"] = new Uri(MediaSource.FileName);
+                    int counter = (int)Settings.Default["Counter"];
+                    counter += 1;
+                    Settings.Default["Counter"] = counter;
+                    Settings.Default.Save();
+                }
+                else if (Convert.ToInt32(Settings.Default["Counter"]) == 2)
+                {
+                    Settings.Default["Media3"] = new Uri(MediaSource.FileName);
+                    int counter = (int)Settings.Default["Counter"];
+                    counter += 1;
+                    Settings.Default["Counter"] = counter;
+                    Settings.Default.Save();
+                }
+                else if (Convert.ToInt32(Settings.Default["Counter"]) == 3)
+                {
+                    Settings.Default["Media4"] = new Uri(MediaSource.FileName);
+                    int counter = (int)Settings.Default["Counter"];
+                    counter += 1;
+                    Settings.Default["Counter"] = counter;
+                    Settings.Default.Save();
+                }
+                else if (Convert.ToInt32(Settings.Default["Counter"]) == 4)
+                {
+                    Settings.Default["Media5"] = new Uri(MediaSource.FileName);
+                    int counter = (int)Settings.Default["Counter"];
+                    counter += 1;
+                    Settings.Default["Counter"] = counter;
+                    Settings.Default.Save();
+                }
+                else if (Convert.ToInt32(Settings.Default["Counter"]) == 5)
+                {
+                    Settings.Default["Media6"] = new Uri(MediaSource.FileName);
+                    int counter = (int)Settings.Default["Counter"];
+                    counter = 0;
+                    Settings.Default["Counter"] = counter;
+                    Settings.Default.Save();
+                }
             }
         }
 
