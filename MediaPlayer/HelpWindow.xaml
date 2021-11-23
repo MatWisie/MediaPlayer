@@ -1,0 +1,76 @@
+﻿<Window x:Class="MediaPlayer.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediaPlayer"
+        mc:Ignorable="d"
+        Title="MainMenu" Height="400" Width="280"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        x:Name="_windowHelp"
+        Background="Black">
+
+
+    <DockPanel>
+        <!--TITLE BAR-->
+        <Grid DockPanel.Dock="Top" 
+              VerticalAlignment="Top" 
+              Background="#1E195C" 
+              Width="{Binding ElementName=_windowMenu, Path=Width}" 
+              MouseDown="Grid_MouseDown"
+              Name="TitleBar">
+
+            <Grid DockPanel.Dock="Top" 
+                  VerticalAlignment="Top" 
+                  Background="#1E195C" 
+                  Width="{Binding ElementName=_windowMenu, Path=Width}">
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="83*"/>
+                    <ColumnDefinition Width="139*"/>
+                    <ColumnDefinition Width="28*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Button Content="X" 
+                        HorizontalAlignment="Stretch"
+                        Grid.Column="2" Style="{StaticResource titleBarButton}" 
+                        Height="29" VerticalAlignment="Top"
+                        Click="Button_Exit"/>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Rectangle}">
+                        <Setter Property="Margin" Value="5 0 0 0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Rectangle Fill="Black" Width="7" Height="20"/>
+                <Rectangle Fill="Black" Width="7" Height="20"/>
+                <Rectangle Fill="Black" Width="7" Height="20"/>
+            </StackPanel>
+        </Grid>
+
+        <!--Main Grid-->
+        <Border BorderThickness="5" BorderBrush="#1E195C">
+            <Grid Background="#48558A" >
+                <StackPanel>
+                    <Border BorderThickness="2" BorderBrush="Black">
+                        <TextBlock TextAlignment="Center" FontSize="25" FontFamily="Elephant">Quality Media Player</TextBlock>
+                    </Border>
+                    <TextBlock TextAlignment="Center" FontSize="15" TextWrapping="Wrap" FontFamily="Bahnschrift"> 
+                        Im proud to present "Quality Media Player". The aim of the project is to design and create a working, comfortable program that supports all kinds of multimedia <LineBreak/>
+                        To use program click Open button and select media. Here you can change volume, pause, play media, enable fullscreen and change the watch time for a media. To turn on the last viewed media, just click the arrow next to the OpenButton.
+                        The program saves and places the recently viewed media in the gallery in the MainMenu<LineBreak/><LineBreak/>
+                        
+                        The program is created by Mateusz Wisiecki.<LineBreak/>
+                        GNU GENERAL PUBLIC LICENSE v3.0
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </DockPanel>
+</Window>

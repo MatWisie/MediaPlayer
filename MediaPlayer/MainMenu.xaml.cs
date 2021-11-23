@@ -13,6 +13,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -154,6 +155,20 @@ namespace MediaPlayer
             MediaElement4.Pause();
             MediaElement5.Pause();
             MediaElement6.Pause();
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            HelpWindow helpwindow = new HelpWindow();
+
+            DoubleAnimation WindowFadeAnim = new DoubleAnimation();
+            WindowFadeAnim.From = 0;
+            WindowFadeAnim.To = 1;
+            WindowFadeAnim.Duration = new Duration(TimeSpan.FromMilliseconds(500));
+            helpwindow.BeginAnimation(Window.OpacityProperty, WindowFadeAnim);
+
+            helpwindow.ShowDialog();
+            
         }
     }
 }

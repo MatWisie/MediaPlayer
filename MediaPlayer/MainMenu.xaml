@@ -138,7 +138,7 @@
                         VerticalAlignment="Bottom"
                         HorizontalAlignment="Right"
                         Grid.Column="2"
-                        Grid.Row="2" />
+                        Grid.Row="2" Click="HelpButton_Click" />
 
         </Grid>
     </DockPanel>
