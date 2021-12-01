@@ -27,12 +27,7 @@ namespace MediaPlayer
         public MainMenu()
         {
             InitializeComponent();
-            MediaElement1.Source = (Uri)Settings.Default["Media1"];
-            MediaElement2.Source = (Uri)Settings.Default["Media2"];
-            MediaElement3.Source = (Uri)Settings.Default["Media3"];
-            MediaElement4.Source = (Uri)Settings.Default["Media4"];
-            MediaElement5.Source = (Uri)Settings.Default["Media5"];
-            MediaElement6.Source = (Uri)Settings.Default["Media6"];
+            
 
             MediaElement1.Play();
             MediaElement2.Play();
@@ -156,6 +151,8 @@ namespace MediaPlayer
             MediaElement5.Pause();
             MediaElement6.Pause();
         }
+
+        
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {

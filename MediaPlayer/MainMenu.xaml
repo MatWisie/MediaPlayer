@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediaPlayer"
+        xmlns:properties="clr-namespace:MediaPlayer.Properties"
         mc:Ignorable="d"
         Title="MainMenu" Height="450" Width="700"
         WindowStyle="None"
@@ -114,7 +115,7 @@
 
         <!--Main Grid-->
 
-        <Grid Background="#192B73" >
+        <Grid Background="#192B73" DataContext="{Binding Source={x:Static properties:Settings.Default}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -126,12 +127,12 @@
                 <RowDefinition Height="48*"/>
             </Grid.RowDefinitions>
 
-            <MediaElement Name="MediaElement1" Grid.Column="0" Grid.Row="0" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened"/>
-            <MediaElement Name="MediaElement2" Grid.Column="1" Grid.Row="0" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened"/>
-            <MediaElement Name="MediaElement3" Grid.Column="2" Grid.Row="0" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened"/>
-            <MediaElement Name="MediaElement4" Grid.Column="0" Grid.Row="1" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened"/>
-            <MediaElement Name="MediaElement5" Grid.Column="1" Grid.Row="1" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened"/>
-            <MediaElement Name="MediaElement6" Grid.Column="2" Grid.Row="1" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened"/>
+            <MediaElement Name="MediaElement1" Grid.Column="0" Grid.Row="0" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened" Source="{Binding Path=Media1}"/>
+            <MediaElement Name="MediaElement2" Grid.Column="1" Grid.Row="0" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened" Source="{Binding Path=Media2}"/>
+            <MediaElement Name="MediaElement3" Grid.Column="2" Grid.Row="0" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened" Source="{Binding Path=Media3}"/>
+            <MediaElement Name="MediaElement4" Grid.Column="0" Grid.Row="1" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened" Source="{Binding Path=Media4}"/>
+            <MediaElement Name="MediaElement5" Grid.Column="1" Grid.Row="1" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened" Source="{Binding Path=Media5}"/>
+            <MediaElement Name="MediaElement6" Grid.Column="2" Grid.Row="1" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement1_MediaOpened" Source="{Binding Path=Media6}"/>
 
             <Button Content="?" 
                         Style="{StaticResource helpButton}" 
