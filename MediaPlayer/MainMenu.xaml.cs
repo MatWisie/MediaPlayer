@@ -142,7 +142,7 @@ namespace MediaPlayer
 
         }
 
-        private void MediaElement1_MediaOpened(object sender, RoutedEventArgs e)
+        private void MediaElement_MediaOpened(object sender, RoutedEventArgs e)
         {
             MediaElement1.Pause();
             MediaElement2.Pause();
@@ -166,6 +166,13 @@ namespace MediaPlayer
 
             helpwindow.ShowDialog();
             
+        }
+
+        private void MediaelementGallery_Click(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show();
+            mainwindow.Media.Source = (sender as MediaElement).Source;
         }
     }
 }
