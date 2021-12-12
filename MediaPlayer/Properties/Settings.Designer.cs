@@ -111,5 +111,77 @@ namespace MediaPlayer.Properties {
                 this["Media6"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FileName1 {
+            get {
+                return ((string)(this["FileName1"]));
+            }
+            set {
+                this["FileName1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FileName2 {
+            get {
+                return ((string)(this["FileName2"]));
+            }
+            set {
+                this["FileName2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FileName3 {
+            get {
+                return ((string)(this["FileName3"]));
+            }
+            set {
+                this["FileName3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FileName4 {
+            get {
+                return ((string)(this["FileName4"]));
+            }
+            set {
+                this["FileName4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FileName5 {
+            get {
+                return ((string)(this["FileName5"]));
+            }
+            set {
+                this["FileName5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FileName6 {
+            get {
+                return ((string)(this["FileName6"]));
+            }
+            set {
+                this["FileName6"] = value;
+            }
+        }
     }
 }

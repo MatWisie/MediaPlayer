@@ -71,7 +71,6 @@ namespace MediaPlayer
             OpenFileDialog MediaSource = new OpenFileDialog();
             MediaSource.Filter = "Media Files|*.wav;*.aac;*.wma;*.wmv;*.avi;*.mpg;*.mpeg;*.m1v;*.mp2;*.mp3;*.mpa;*.mpe;*.m3u;*.mp4;*.mov;*.3g2;*.3gp2;*.3gp;*.3gpp;*.m4a;*.cda;*.aif;*.aifc;*.aiff;*.mid;*.midi;*.rmi;*.mkv;*.WAV;*.AAC;*.WMA;*.WMV;*.AVI;*.MPG;*.MPEG;*.M1V;*.MP2;*.MP3;*.MPA;*.MPE;*.M3U;*.MP4;*.MOV;*.3G2;*.3GP2;*.3GP;*.3GPP;*.M4A;*.CDA;*.AIF;*.AIFC;*.AIFF;*.MID;*.MIDI;*.RMI;*.MKV"; ;
             MediaSource.ShowDialog();
-            
 
 
             if (!string.IsNullOrEmpty(MediaSource.FileName))
@@ -83,6 +82,7 @@ namespace MediaPlayer
                 if (Convert.ToInt32(Settings.Default["Counter"]) == 0)
                 {
                     Settings.Default["Media1"] = new Uri(MediaSource.FileName);
+                    Settings.Default["FileName1"] = MediaSource.SafeFileName;
                     int counter = (int)Settings.Default["Counter"];
                     counter += 1;
                     Settings.Default["Counter"] = counter;
@@ -92,6 +92,7 @@ namespace MediaPlayer
                 else if (Convert.ToInt32(Settings.Default["Counter"]) == 1)
                 {
                     Settings.Default["Media2"] = new Uri(MediaSource.FileName);
+                    Settings.Default["FileName2"] = MediaSource.SafeFileName;
                     int counter = (int)Settings.Default["Counter"];
                     counter += 1;
                     Settings.Default["Counter"] = counter;
@@ -100,6 +101,7 @@ namespace MediaPlayer
                 else if (Convert.ToInt32(Settings.Default["Counter"]) == 2)
                 {
                     Settings.Default["Media3"] = new Uri(MediaSource.FileName);
+                    Settings.Default["FileName3"] = MediaSource.SafeFileName;
                     int counter = (int)Settings.Default["Counter"];
                     counter += 1;
                     Settings.Default["Counter"] = counter;
@@ -108,6 +110,7 @@ namespace MediaPlayer
                 else if (Convert.ToInt32(Settings.Default["Counter"]) == 3)
                 {
                     Settings.Default["Media4"] = new Uri(MediaSource.FileName);
+                    Settings.Default["FileName4"] = MediaSource.SafeFileName;
                     int counter = (int)Settings.Default["Counter"];
                     counter += 1;
                     Settings.Default["Counter"] = counter;
@@ -116,6 +119,7 @@ namespace MediaPlayer
                 else if (Convert.ToInt32(Settings.Default["Counter"]) == 4)
                 {
                     Settings.Default["Media5"] = new Uri(MediaSource.FileName);
+                    Settings.Default["FileName5"] = MediaSource.SafeFileName;
                     int counter = (int)Settings.Default["Counter"];
                     counter += 1;
                     Settings.Default["Counter"] = counter;
@@ -124,6 +128,7 @@ namespace MediaPlayer
                 else if (Convert.ToInt32(Settings.Default["Counter"]) == 5)
                 {
                     Settings.Default["Media6"] = new Uri(MediaSource.FileName);
+                    Settings.Default["FileName6"] = MediaSource.SafeFileName;
                     int counter = (int)Settings.Default["Counter"];
                     counter = 0;
                     Settings.Default["Counter"] = counter;
