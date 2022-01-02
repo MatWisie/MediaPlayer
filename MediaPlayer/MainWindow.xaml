@@ -159,9 +159,16 @@
                     ValueChanged="totalTime_ValueChanged"
                     Thumb.DragStarted="totalTime_DragStarted"
                     Thumb.DragCompleted="totalTime_DragCompleted"
-                        Grid.Column="1"/>
+                    MouseMove="totalTimePopup" 
+                    Grid.Column="1"/>
                 </Grid>
-
+                
+                <Popup Name="floatingTip" AllowsTransparency="True" Opacity="0.5" Placement="Relative" IsOpen="{Binding ElementName=totalTime, Path=IsMouseOver, Mode=OneWay}" Width="100" Height="20">
+                    <Grid Background="DarkGray">
+                        <TextBlock Foreground="White" TextAlignment="Center">10:00/20:00</TextBlock>
+                    </Grid>
+                </Popup>
+                
                 <StackPanel Grid.Row="1" 
                             VerticalAlignment="Bottom" 
                             HorizontalAlignment="Left"

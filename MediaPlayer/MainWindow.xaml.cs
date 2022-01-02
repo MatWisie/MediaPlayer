@@ -257,5 +257,15 @@ namespace MediaPlayer
             if (MusicImage.Visibility == Visibility.Hidden)
                 MusicImage.Visibility = Visibility.Visible;
         }
+
+        private void totalTimePopup(object sender, MouseEventArgs e)
+        {
+            System.Windows.Point position = e.GetPosition(this);
+            double pX = position.X;
+            double pY = position.Y;
+
+            floatingTip.HorizontalOffset = pX + 8;
+            floatingTip.VerticalOffset = pY - 50;
+        }
     }
 }
