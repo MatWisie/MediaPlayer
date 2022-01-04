@@ -108,11 +108,11 @@ namespace MediaPlayer
         }
         private void Media_MediaOpened(object sender, RoutedEventArgs e)
         {
-
+            
             totalTime.Maximum = Media.NaturalDuration.TimeSpan.TotalSeconds;
             Media.Play();
             TimeOfMedia.Start();
-            
+            mediaLenght.Content = Media.NaturalDuration.TimeSpan.ToString(@"hh\:mm\:ss");
         }
         private void TimeOfMedia_Tick(object sender, EventArgs e)
         {
@@ -264,8 +264,8 @@ namespace MediaPlayer
             double pX = position.X;
             double pY = position.Y;
 
-            floatingTip.HorizontalOffset = pX + 8;
-            floatingTip.VerticalOffset = pY - 50;
+            timePopup.HorizontalOffset = pX + 8;
+            timePopup.VerticalOffset = pY - 50;
         }
     }
 }

@@ -26,6 +26,8 @@
                     Storyboard.TargetName="PlayPauseImg"/>
             </Storyboard>
         </BeginStoryboard>
+
+        <local:timeConverter x:Key="TimeConverter"/>
     </Window.Resources>
 
 
@@ -163,10 +165,12 @@
                     Grid.Column="1"/>
                 </Grid>
                 
-                <Popup Name="floatingTip" AllowsTransparency="True" Opacity="0.5" Placement="Relative" IsOpen="{Binding ElementName=totalTime, Path=IsMouseOver, Mode=OneWay}" Width="100" Height="20">
-                    <Grid Background="DarkGray">
-                        <TextBlock Foreground="White" TextAlignment="Center">10:00/20:00</TextBlock>
-                    </Grid>
+                <Popup Name="timePopup" AllowsTransparency="True" Opacity="0.5" Placement="Relative" IsOpen="{Binding ElementName=totalTime, Path=IsMouseOver, Mode=OneWay}">
+                    <StackPanel Background="#2e2d2d" Orientation="Horizontal">
+                        <Label Foreground="White" Content="{Binding ElementName=totalTime, Path=Value, Converter={StaticResource TimeConverter}}"/>
+                        <Label Content="/" Foreground="White"/>
+                        <Label Foreground="White" Name="mediaLenght"/>
+                    </StackPanel>
                 </Popup>
                 
                 <StackPanel Grid.Row="1" 
