@@ -131,7 +131,8 @@
                     <RowDefinition Height="156*"/>
                     <RowDefinition Height="31*"/>
                 </Grid.RowDefinitions>
-
+                <Rectangle Fill="Black" Visibility="Hidden" Name="MusicBackground1" Margin="5 0 5 0"/>
+                <Image Source="/Img/Music.png" Visibility="Hidden" Name="MusicImage1" Margin="5 0 5 0" Width="100"/>
                 <MediaElement Name="MediaElement1" Grid.Column="0" Grid.Row="0" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement_MediaOpened" Source="{Binding Path=Media1}" PreviewMouseLeftButtonDown="MediaelementGallery_Click"/>
                 <TextBlock Grid.Row="1" Text="{Binding Path=FileName1}" Style="{StaticResource TextBlockMediaGallery}"/>
             </Grid>
@@ -142,6 +143,8 @@
                     <RowDefinition Height="156*"/>
                     <RowDefinition Height="31*"/>
                 </Grid.RowDefinitions>
+                <Rectangle Fill="Black" Visibility="Hidden" Name="MusicBackground2" Margin="5 0 5 0"/>
+                <Image Source="/Img/Music.png" Visibility="Hidden" Name="MusicImage2" Margin="5 0 5 0" Width="100"/>
                 <MediaElement Name="MediaElement2" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement_MediaOpened" Source="{Binding Path=Media2}" PreviewMouseLeftButtonDown="MediaelementGallery_Click"/>
                 <TextBlock Grid.Row="1" Text="{Binding Path=FileName2}" Style="{StaticResource TextBlockMediaGallery}"/>
             </Grid>
@@ -151,6 +154,8 @@
                     <RowDefinition Height="156*"/>
                     <RowDefinition Height="31*"/>
                 </Grid.RowDefinitions>
+                <Rectangle Fill="Black" Visibility="Hidden" Name="MusicBackground3" Margin="5 0 5 0"/>
+                <Image Source="/Img/Music.png" Visibility="Hidden" Name="MusicImage3" Margin="5 0 5 0" Width="100"/>
                 <MediaElement Name="MediaElement3" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement_MediaOpened" Source="{Binding Path=Media3}" PreviewMouseLeftButtonDown="MediaelementGallery_Click"/>
                 <TextBlock Grid.Row="1" Text="{Binding Path=FileName3}" Style="{StaticResource TextBlockMediaGallery}"/>
             </Grid>
@@ -160,6 +165,8 @@
                     <RowDefinition Height="156*"/>
                     <RowDefinition Height="31*"/>
                 </Grid.RowDefinitions>
+                <Rectangle Fill="Black" Visibility="Hidden" Name="MusicBackground4" Margin="5 0 5 0"/>
+                <Image Source="/Img/Music.png" Visibility="Hidden" Name="MusicImage4" Margin="5 0 5 0" Width="100"/>
                 <MediaElement Name="MediaElement4" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement_MediaOpened" Source="{Binding Path=Media4}" PreviewMouseLeftButtonDown="MediaelementGallery_Click"/>
                 <TextBlock Grid.Row="1" Text="{Binding Path=FileName4}" Style="{StaticResource TextBlockMediaGallery}"/>
             </Grid>
@@ -169,6 +176,8 @@
                     <RowDefinition Height="156*"/>
                     <RowDefinition Height="31*"/>
                 </Grid.RowDefinitions>
+                <Rectangle Fill="Black" Visibility="Hidden" Name="MusicBackground5" Margin="5 0 5 0"/>
+                <Image Source="/Img/Music.png" Visibility="Hidden" Name="MusicImage5" Margin="5 0 5 0" Width="100"/>
                 <MediaElement Name="MediaElement5" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement_MediaOpened" Source="{Binding Path=Media5}" PreviewMouseLeftButtonDown="MediaelementGallery_Click"/>
                 <TextBlock Grid.Row="1" Text="{Binding Path=FileName5}" Style="{StaticResource TextBlockMediaGallery}"/>
             </Grid>
@@ -178,6 +187,8 @@
                     <RowDefinition Height="156*"/>
                     <RowDefinition Height="31*"/>
                 </Grid.RowDefinitions>
+                <Rectangle Fill="Black" Visibility="Hidden" Name="MusicBackground6" Margin="5 0 5 0"/>
+                <Image Source="/Img/Music.png" Visibility="Hidden" Name="MusicImage6" Margin="5 0 5 0" Width="100"/>
                 <MediaElement Name="MediaElement6" Style="{StaticResource MediaGallery}" MediaOpened="MediaElement_MediaOpened" Source="{Binding Path=Media6}" PreviewMouseLeftButtonDown="MediaelementGallery_Click"/>
                 <TextBlock Grid.Row="1" Text="{Binding Path=FileName6}" Style="{StaticResource TextBlockMediaGallery}"/>
             </Grid>

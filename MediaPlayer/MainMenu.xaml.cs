@@ -149,15 +149,45 @@ namespace MediaPlayer
 
         private void MediaElement_MediaOpened(object sender, RoutedEventArgs e)
         {
-            MediaElement1.Pause();
-            MediaElement2.Pause();
-            MediaElement3.Pause();
-            MediaElement4.Pause();
-            MediaElement5.Pause();
-            MediaElement6.Pause();
+            
+            (sender as MediaElement).Pause();
+            if ((sender as MediaElement).HasAudio == true && (sender as MediaElement).HasVideo == false) 
+            {
+                if (sender == MediaElement1)
+                {
+                    MusicBackground1.Visibility = Visibility.Visible;
+                    MusicImage1.Visibility = Visibility.Visible;
+                }
+                else if (sender == MediaElement2)
+                {
+                    MusicBackground2.Visibility = Visibility.Visible;
+                    MusicImage2.Visibility = Visibility.Visible;
+                }
+                else if (sender == MediaElement3)
+                {
+                    MusicBackground3.Visibility = Visibility.Visible;
+                    MusicImage3.Visibility = Visibility.Visible;
+                }
+                else if (sender == MediaElement4)
+                {
+                    MusicBackground4.Visibility = Visibility.Visible;
+                    MusicImage4.Visibility = Visibility.Visible;
+                }
+                else if (sender == MediaElement5)
+                {
+                    MusicBackground5.Visibility = Visibility.Visible;
+                    MusicImage5.Visibility = Visibility.Visible;
+                }
+                else if (sender == MediaElement6)
+                {
+                    MusicBackground6.Visibility = Visibility.Visible;
+                    MusicImage6.Visibility = Visibility.Visible;
+                }
+            }
+
         }
 
-        
+
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
@@ -179,5 +209,7 @@ namespace MediaPlayer
             mainwindow.Show();
             mainwindow.Media.Source = (sender as MediaElement).Source;
         }
+
+        
     }
 }
