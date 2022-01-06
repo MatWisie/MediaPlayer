@@ -210,6 +210,11 @@ namespace MediaPlayer
             mainwindow.Media.Source = (sender as MediaElement).Source;
         }
 
-        
+        private void MusicBackground_Click(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show();
+            mainwindow.Media.Source = (Uri)(sender as Rectangle).DataContext;
+        }
     }
 }
