@@ -36,10 +36,11 @@ namespace MediaPlayer
             MediaElement5.Play();
             MediaElement6.Play();
 
-            if (Debugger.IsAttached)  //remove when want to test settings
+            /*if (Debugger.IsAttached)  //remove when want to test settings
             {
                 Settings.Default.Reset();
             }
+            */
 
         }
 
@@ -66,6 +67,7 @@ namespace MediaPlayer
             _windowMenu.WindowState = WindowState.Minimized;
         }
 
+        //Opening filedialog and saving media to settings.
         private void FileDialogButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog MediaSource = new OpenFileDialog();
@@ -151,6 +153,7 @@ namespace MediaPlayer
         {
             
             (sender as MediaElement).Pause();
+            //Revealing background for music media
             if ((sender as MediaElement).HasAudio == true && (sender as MediaElement).HasVideo == false) 
             {
                 if (sender == MediaElement1)
@@ -182,6 +185,39 @@ namespace MediaPlayer
                 {
                     MusicBackground6.Visibility = Visibility.Visible;
                     MusicImage6.Visibility = Visibility.Visible;
+                }
+            }
+            else
+            {
+                if (sender == MediaElement1)
+                {
+                    MusicBackground1.Visibility = Visibility.Hidden;
+                    MusicImage1.Visibility = Visibility.Hidden;
+                }
+                else if (sender == MediaElement2)
+                {
+                    MusicBackground2.Visibility = Visibility.Hidden;
+                    MusicImage2.Visibility = Visibility.Hidden;
+                }
+                else if (sender == MediaElement3)
+                {
+                    MusicBackground3.Visibility = Visibility.Hidden;
+                    MusicImage3.Visibility = Visibility.Hidden;
+                }
+                else if (sender == MediaElement4)
+                {
+                    MusicBackground4.Visibility = Visibility.Hidden;
+                    MusicImage4.Visibility = Visibility.Hidden;
+                }
+                else if (sender == MediaElement5)
+                {
+                    MusicBackground5.Visibility = Visibility.Hidden;
+                    MusicImage5.Visibility = Visibility.Hidden;
+                }
+                else if (sender == MediaElement6)
+                {
+                    MusicBackground6.Visibility = Visibility.Hidden;
+                    MusicImage6.Visibility = Visibility.Hidden;
                 }
             }
 

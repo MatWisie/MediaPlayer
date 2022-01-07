@@ -32,11 +32,12 @@ namespace MediaPlayer
         {
             InitializeComponent();
 
-            
 
+            //Hiding and revealing the bottom bar with DispatcherTimer
             timer.Interval = TimeSpan.FromSeconds(1);
-            
             timer.Tick += MouseStop;
+
+            //Time slider DispatcherTimer
             TimeOfMedia = new DispatcherTimer();
             TimeOfMedia.Interval = TimeSpan.FromSeconds(1);
             TimeOfMedia.Tick += TimeOfMedia_Tick;
@@ -83,6 +84,7 @@ namespace MediaPlayer
                 if (TimeOfMedia != null)
                     TimeOfMedia.Start();
 
+                //Appearing image when media is paused or resumed. Fading animation
                 playing = true;
                 PlayPauseImg.Source = new BitmapImage(new Uri(@"/Img/Play.png", UriKind.Relative));
                 PlayPauseImgBottom.Source = new BitmapImage(new Uri(@"/Img/PlayWhite.png", UriKind.Relative));
@@ -124,6 +126,7 @@ namespace MediaPlayer
         }
         private void totalTime_DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
         {
+            //Pause media when dragging the thumb
             Media.Pause();
             if (TimeOfMedia != null)
             {
@@ -139,7 +142,7 @@ namespace MediaPlayer
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
-
+            //Moving the mouse reveal the bottom panel
             timer.Stop();
             ControlsGrid.Visibility = Visibility.Visible;
             timer.Start();
@@ -178,6 +181,7 @@ namespace MediaPlayer
 
         private void FileDialog(object sender, RoutedEventArgs e)
         {
+            //Opening filedialog and saving media to settings
             OpenFileDialog MediaSource = new OpenFileDialog();
             MediaSource.Filter = "Media Files|*.wav;*.aac;*.wma;*.wmv;*.avi;*.mpg;*.mpeg;*.m1v;*.mp2;*.mp3;*.mpa;*.mpe;*.m3u;*.mp4;*.mov;*.3g2;*.3gp2;*.3gp;*.3gpp;*.m4a;*.cda;*.aif;*.aifc;*.aiff;*.mid;*.midi;*.rmi;*.mkv;*.WAV;*.AAC;*.WMA;*.WMV;*.AVI;*.MPG;*.MPEG;*.M1V;*.MP2;*.MP3;*.MPA;*.MPE;*.M3U;*.MP4;*.MOV;*.3G2;*.3GP2;*.3GP;*.3GPP;*.M4A;*.CDA;*.AIF;*.AIFC;*.AIFF;*.MID;*.MIDI;*.RMI;*.MKV"; ;
             MediaSource.ShowDialog();
@@ -260,6 +264,7 @@ namespace MediaPlayer
 
         private void totalTimePopup(object sender, MouseEventArgs e)
         {
+            //Making the popup appear next to the mouse. 
             System.Windows.Point position = e.GetPosition(this);
             double pX = position.X;
             double pY = position.Y;

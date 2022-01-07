@@ -165,9 +165,15 @@
                     Grid.Column="1"/>
                 </Grid>
                 
-                <Popup Name="timePopup" AllowsTransparency="True" Opacity="0.5" Placement="Relative" IsOpen="{Binding ElementName=totalTime, Path=IsMouseOver, Mode=OneWay}">
+                <Popup Name="timePopup" 
+                       AllowsTransparency="True" 
+                       Opacity="0.5" 
+                       Placement="Relative" 
+                       IsOpen="{Binding ElementName=totalTime, Path=IsMouseOver, Mode=OneWay}">
                     <StackPanel Background="#2e2d2d" Orientation="Horizontal">
-                        <Label Foreground="White" Content="{Binding ElementName=totalTime, Path=Value, Converter={StaticResource TimeConverter}}"/>
+                        <Label Foreground="White" 
+                               Content="{Binding 
+                               ElementName=totalTime, Path=Value, Converter={StaticResource TimeConverter}}"/>
                         <Label Content="/" Foreground="White"/>
                         <Label Foreground="White" Name="mediaLenght"/>
                     </StackPanel>
